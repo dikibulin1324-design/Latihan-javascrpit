@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Website manajemen tugas mahasiswa">
+  <title>TaskMate | Manajemen Tugas Mahasiswa</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="brand" href="#beranda"><span class="brand-icon">✓</span> TaskMate</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Buka navigasi">☰</button>
+    <nav id="navbar">
+      <a href="#beranda" class="nav-link active">Beranda</a>
+      <a href="#tugas" class="nav-link">Daftar Tugas</a>
+      <a href="#tentang" class="nav-link">Tentang</a>
+    </nav>
+    <button id="themeToggle" class="theme-btn" aria-label="Ganti tema">🌙</button>
+  </header>
+
+  <main>
+    <section id="beranda" class="hero section">
+      <div class="hero-copy">
+        <span class="eyebrow">MANAJEMEN WAKTU JADI LEBIH MUDAH</span>
+        <h1>Atur tugasmu.<br><span>Raih tujuanmu.</span></h1>
+        <p>Catat pekerjaan kuliah, atur prioritas, dan pantau progres tugas dalam satu tempat.</p>
+        <a class="primary-btn" href="#tugas">Mulai Kelola Tugas <span>→</span></a>
+      </div>
+      <div class="hero-card">
+        <div class="hero-card-top"><span>Ringkasan aktivitas</span><span class="live-dot">● Aktif</span></div>
+        <div class="hero-number" id="heroCompleted">0</div>
+        <p>tugas telah diselesaikan</p>
+        <div class="progress-track"><div id="heroProgress" class="progress-fill"></div></div>
+        <div class="hero-card-bottom"><span>Progress keseluruhan</span><strong id="heroPercent">0%</strong></div>
+        <div class="mini-check">✓ <span>Terus semangat, kamu pasti bisa!</span></div>
+      </div>
+    </section>
+
+    <section class="stats section" aria-label="Statistik tugas">
+      <article class="stat-card"><span class="stat-icon purple">▤</span><div><p>Total Tugas</p><strong id="totalCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon orange">◷</span><div><p>Belum Selesai</p><strong id="pendingCount">0</strong></div></article>
+      <article class="stat-card"><span class="stat-icon green">✓</span><div><p>Selesai</p><strong id="doneCount">0</strong></div></article>
+    </section>
+
+    <section id="tugas" class="task-section section">
+      <div class="section-heading">
+        <div><span class="eyebrow">RUANG PRODUKTIVITAS</span><h2>Daftar Tugas</h2><p>Tambahkan tugas baru dan pantau perkembangannya.</p></div>
+      </div>
+      <div class="workspace">
+        <form id="taskForm" class="form-card" novalidate>
+          <h3>＋ Tambah Tugas</h3>
+          <label for="taskTitle">Nama tugas</label>
+          <input id="taskTitle" type="text" placeholder="Contoh: Membuat makalah..." maxlength="70" required>
+          <small class="error" id="titleError"></small>
+          <label for="taskSubject">Mata kuliah</label>
+          <input id="taskSubject" type="text" placeholder="Contoh: Pemrograman Web" maxlength="50" required>
+          <small class="error" id="subjectError"></small>
+          <div class="form-row">
+            <div><label for="taskDate">Deadline</label><input id="taskDate" type="date" required></div>
+            <div><label for="taskPriority">Prioritas</label>
+              <select id="taskPriority"><option value="Normal">Normal</option><option value="Tinggi">Tinggi</option><option value="Rendah">Rendah</option></select>
+            </div>
+          </div>
+          <small class="error" id="dateError"></small>
+          <button type="submit" class="primary-btn submit-btn">Simpan Tugas <span>＋</span></button>
+          <p class="form-note">Isi semua kolom untuk menambahkan tugas.</p>
+        </form>
+
+        <div class="list-card">
+          <div class="list-header"><div><h3>Tugas Saya</h3><p id="listSubtitle">Semua aktivitasmu ada di sini.</p></div><span class="task-badge" id="visibleCount">0 tugas</span></div>
+          <div class="tools-row">
+            <input id="searchInput" type="search" placeholder="⌕ Cari tugas atau mata kuliah...">
+            <select id="filterSelect" aria-label="Filter status"><option value="all">Semua status</option><option value="pending">Belum selesai</option><option value="done">Selesai</option></select>
+          </div>
+          <div id="taskList" class="task-list">
+            <div class="empty-state"><div>✎</div><strong>Belum ada tugas</strong><p>Tambahkan tugas pertamamu melalui formulir.</p></div>
+          </div>
+          <div class="list-footer"><span>Data tersimpan otomatis di browser ini.</span><button id="clearDone" class="text-btn">Hapus tugas selesai</button></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tentang" class="about-section section">
+      <div class="about-box"><div><span class="eyebrow">TENTANG TASKMATE</span><h2>Produktif dimulai dari<br>rencana sederhana.</h2></div>
+        <p>TaskMate adalah website sederhana untuk membantu mahasiswa mencatat tugas, menentukan prioritas, dan mengingat deadline. Gunakan secara rutin agar kegiatan kuliah lebih terorganisir.</p>
+      </div>
+      <div class="feature-grid">
+        <article><span>✦</span><h3>Mudah digunakan</h3><p>Antarmuka sederhana dan mudah dipahami.</p></article>
+        <article><span>◷</span><h3>Pantau deadline</h3><p>Lihat tanggal pengumpulan setiap tugas.</p></article>
+        <article><span>✓</span><h3>Lihat progres</h3><p>Ketahui jumlah tugas yang sudah selesai.</p></article>
+      </div>
+    </section>
+  </main>
+
+  <footer><a class="brand" href="#beranda"><span class="brand-icon">✓</span> TaskMate</a><p>© 2026 TaskMate — Website Manajemen Tugas Mahasiswa</p></footer>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="script.js"></script>
+</body>
+</html>
