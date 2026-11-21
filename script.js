@@ -5,11 +5,11 @@ const filterSelect = document.getElementById('filterSelect');
 const themeToggle = document.getElementById('themeToggle');
 const toast = document.getElementById('toast');
 
-let tasks = JSON.parse(localStorage.getItem('taskmateTasks') || '[]');
+let tasks = JSON.parse(localStorage.getItem('tugaskuTasks') || '[]');
 let toastTimer;
 
 function saveTasks() {
-  localStorage.setItem('taskmateTasks', JSON.stringify(tasks));
+  localStorage.setItem('TugaskuTasks', JSON.stringify(tasks));
 }
 
 function showToast(message) {
@@ -147,10 +147,10 @@ themeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
   const isDark = document.body.classList.contains('dark');
   themeToggle.textContent = isDark ? '☀️' : '🌙';
-  localStorage.setItem('taskmateDark', isDark ? 'yes' : 'no');
+  localStorage.setItem('tugaskuDark', isDark ? 'yes' : 'no');
 });
 
-if (localStorage.getItem('taskmateDark') === 'yes') {
+if (localStorage.getItem('tugaskuDark') === 'yes') {
   document.body.classList.add('dark');
   themeToggle.textContent = '☀️';
 }
